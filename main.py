@@ -1,5 +1,5 @@
 import streamlit as st 
-# from db_c import conn,cursor
+from db_c import conn,cursor
 st.title("Media Platform")
 
 login,signup = st.tabs(
