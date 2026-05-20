@@ -26,4 +26,8 @@ with signup:
 
         btn = st.form_submit_button("SignUp")
 
+        cursor.execute("show tables")
+        tables=cursor.fetchall()
+        st.write(tables)
+
         
