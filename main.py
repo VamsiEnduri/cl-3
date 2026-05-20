@@ -16,6 +16,13 @@ def login_function():
         password = st.text_input("Password",type="password")
         btn=st.form_submit_button("Login")
 
+        if btn:
+            query="select * from customers where email=%s,password=%s"
+            customers.execute(query)
+            loggedin_user=cursor.fetchone()
+            st.write(f"welcome {loggedin_user["name"]}")
+            st.session_state.user =True
+            st.rerun()
 
 def signup_function():
     st.header("SignUp")
@@ -36,13 +43,6 @@ def signup_function():
             cursor.execute(query,values)
             conn.commit()
             st.success("user added successfully..")
-            st.session_state.user=True
-            st.rerun()
-
-        cursor.execute("show tables")
-        tables=cursor.fetchall()
-        st.write(tables)
-
 
 
 def dashboard():
