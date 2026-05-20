@@ -93,6 +93,21 @@ def dashboard():
                     )
 
                     st.code(file_url)
+    elif opt == "viewFiles":
+
+        st.header("View Files")
+
+        # ---------------- FETCH FILES ----------------
+
+        query = """
+    SELECT * FROM files2
+    ORDER BY upload_date DESC
+        """
+
+        cursor.execute(query)
+
+        files = cursor.fetchall()
+        print(files)
 
 
     elif opt == "Logout":
