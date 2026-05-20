@@ -1,4 +1,5 @@
 streamlit 
+cloudinary
 mysql-connector-python
 
 
