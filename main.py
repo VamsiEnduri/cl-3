@@ -29,7 +29,7 @@ def signup_function():
         btn = st.form_submit_button("SignUp")
 
         if btn:
-            query="insert into user2(name,email,password) values (%s,%s,%s)"
+            query="insert into users2(name,email,password) values (%s,%s,%s)"
 
             values=(name,email,password)
 
