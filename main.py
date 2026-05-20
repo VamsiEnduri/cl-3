@@ -109,6 +109,9 @@ def dashboard():
         files = cursor.fetchall()
         print(files)
 
+        if len(files)  == 0:
+            st.error("no files in db")
+
 
     elif opt == "Logout":
         st.session_state.user=None 
