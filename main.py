@@ -51,6 +51,24 @@ def dashboard():
         st.header("Dashboard")
     elif opt == "uploadFiles":
         st.header("uploadFiles")
+        u_file=st.file_uploader("upload file",type=["pdf","jpg","jpeg","png","mp3","mp4"])
+
+        if u_file :
+            st.success("file selected successfully..")
+
+            st.write("file_name",u_file.name)
+            st.write("file_type",u_file.type)
+            st.write("file_name",u_file.size)
+
+            if u_file.type == "application/pdf":
+                st.info("Pdf file uploaded")
+            elif "image" in u_file.type:
+                st.image(u_file,width=300)
+            elif "video" in u_file.type:
+                st.video(u_file)  
+            elif "audio" in u_file.type:
+                st.audio(u_file)      
+
     elif opt == "Logout":
         st.session_state.user=None 
         st.success("user loggedout successfully")
