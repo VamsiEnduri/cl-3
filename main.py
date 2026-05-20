@@ -2,9 +2,7 @@ import streamlit as st
 from db_c import conn,cursor
 st.title("Media Platform")
 
-login,signup = st.tabs(
-    ["Login","SignUp"]
-)
+
 
 if "user" not in st.session_state:
     st.session_state.user=None
@@ -59,6 +57,11 @@ def dashboard():
         st.rerun()       
 
 if st.session_state.user is None :
+
+    login,signup = st.tabs(
+    ["Login","SignUp"]
+)
+
     with signup:
         signup_function()
     with login:
