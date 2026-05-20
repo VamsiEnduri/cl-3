@@ -88,7 +88,7 @@ def dashboard():
 
                     file_url = uploaded_file["secure_url"]
                     query = "insert into files2(file_name,file_type,file_url) values(%s,%s,%s)"
-                     values = (u_file.name,u_file.type,file_url)
+                    values = (u_file.name,u_file.type,file_url)
                     cursor.execute(query,values)
 
                     conn.commit()
