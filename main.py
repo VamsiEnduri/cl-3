@@ -17,7 +17,7 @@ def login_function():
         btn=st.form_submit_button("Login")
 
         if btn:
-            query="select * from users2 where email=%s,password=%s"
+            query="select * from users2 where email=%s and password=%s"
             cursor.execute(query)
             loggedin_user=cursor.fetchone()
             st.write(f"welcome {loggedin_user["name"]}")
