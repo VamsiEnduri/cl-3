@@ -18,7 +18,7 @@ def login_function():
 
         if btn:
             query="select * from users2 where email=%s and password=%s"
-            values=(email.password)
+            values=(email,password)
             cursor.execute(query,values)
             loggedin_user=cursor.fetchone()
             st.write(f"welcome {loggedin_user["name"]}")
