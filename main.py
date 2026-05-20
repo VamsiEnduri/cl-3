@@ -54,7 +54,7 @@ def signup_function():
 
 def dashboard():
     st.sidebar.success(f"welcome to Dashboard") 
-    opt=st.sidebar.selectbox("choose :-- ",["Dashboard","uploadFiles","Logout"])
+    opt=st.sidebar.selectbox("choose :-- ",["Dashboard","uploadFiles","ViewFiles","Logout"])
     if opt == "Dashboard":
         st.header("Dashboard")
     elif opt == "uploadFiles":
