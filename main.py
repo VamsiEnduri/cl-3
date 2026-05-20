@@ -57,7 +57,7 @@ def dashboard():
         st.success("user loggedout successfully")
         st.rerun()       
 
-if st.session_state.user == True :
+if st.session_state.user is None :
     with signup:
         signup_function()
     with login:
