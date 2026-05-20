@@ -116,8 +116,59 @@ def dashboard():
         files = cursor.fetchall()
         print(files)
 
+
         if len(files)  == 0:
             st.error("no files in db")
+        else:
+            for file in files:
+
+            st.write("---")
+
+            st.write(
+                "File Name:",
+                file["file_name"]
+            )
+
+            st.write(
+                "File Type:",
+                file["file_type"]
+            )
+
+            file_url = file["file_url"]
+
+            # ---------------- IMAGE ----------------
+
+            if "image" in file["file_type"]:
+
+                st.image(
+                    file_url,
+                    width=300
+                )
+
+            # ---------------- VIDEO ----------------
+
+            elif "video" in file["file_type"]:
+
+                st.video(file_url)
+
+            # ---------------- AUDIO ----------------
+
+            elif "audio" in file["file_type"]:
+
+                st.audio(file_url)
+
+            # ---------------- PDF ----------------
+
+            elif "pdf" in file["file_type"]:
+
+                st.link_button(
+                    "Open PDF",
+                    file_url
+                )
+
+            # ---------------- URL ----------------
+
+            st.code(file_url)    
 
 
     elif opt == "Logout":
