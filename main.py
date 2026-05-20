@@ -9,7 +9,7 @@ login,signup = st.tabs(
 if "user" not in st.session_state:
     st.session_state.user=None
 
-with login:
+def login_function():
     st.header("Login")
     with st.form("Login_Form"):
         email = st.text_input("Email")
@@ -17,7 +17,7 @@ with login:
         btn=st.form_submit_button("Login")
 
 
-with signup:
+def signup_function():
     st.header("SignUp")
 
     with st.form("SignUp_Form"):
@@ -58,6 +58,9 @@ def dashboard():
         st.rerun()       
 
 if st.session_state.user == True :
-    pass 
+    with signup:
+        signup_function()
+    with login:
+        login_function()    
 else:
     dashboard()            
