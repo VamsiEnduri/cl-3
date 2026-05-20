@@ -18,7 +18,7 @@ def login_function():
 
         if btn:
             query="select * from customers where email=%s,password=%s"
-            customers.execute(query)
+            cursor.execute(query)
             loggedin_user=cursor.fetchone()
             st.write(f"welcome {loggedin_user["name"]}")
             st.session_state.user =True
